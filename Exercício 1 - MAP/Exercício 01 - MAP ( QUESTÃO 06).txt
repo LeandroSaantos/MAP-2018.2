@@ -1,0 +1,84 @@
+package questão06;
+
+public class ContaBancaria {
+	private String nome;
+	private String cpf;
+	private double saldo;
+	private Long idPessoa;
+
+
+	public ContaBancaria (String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.saldo = 0;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public Long getIdPessoa() {
+		return idPessoa;
+	}
+
+	public void setIdPessoa(Long idPessoa) {
+		this.idPessoa = idPessoa;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public void depositar (double valor) {
+		this.saldo = saldo +  valor;
+	}
+
+	public boolean sacar (double valor) {
+		boolean saque = false ;
+		if ( valor <= saldo) {
+			saldo -= valor;
+			saque = true;
+		}
+		return saque;
+
+	}
+
+}
+
+__________________________________________________________________________________
+
+APP
+
+package questão06.app;
+
+
+
+import questão06.ContaBancaria;
+
+public class ContaBancariaApp {
+
+	public static void main(String[] args) {
+		
+		ContaBancaria  conta = new ContaBancaria ("José", "001.002.003-04" );
+		conta.depositar(100);
+		conta.sacar(20);
+		System.out.println("Saldo: " + conta.getSaldo() + " reais");
+	}
+
+}

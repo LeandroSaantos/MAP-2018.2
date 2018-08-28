@@ -1,0 +1,58 @@
+questao 04 - MAP 
+package questao04;
+
+public class ContaBancaria {
+	private String cpf;
+	private double saldo;
+		
+	public ContaBancaria ( String cpf ) {
+		this.cpf = cpf;
+		this.saldo = 0;
+	
+	}
+	
+	public String getCpf ( ) {
+		return cpf;
+	}
+	
+	public double getSaldo ( ) {
+		return saldo;
+	}
+	
+	public void setCpf ( String cpf ) {
+		this.cpf = cpf ;
+	}
+	
+	
+	public void setSaldo ( double saldo ) {
+		this.saldo = saldo;
+	}
+	
+	public void depositar ( double valor ) {
+		this.saldo = saldo + valor;
+	}
+
+}
+
+_________________________________________________________________________________
+
+APP
+
+package questao04.app;
+
+import java.util.Scanner;
+
+import questao04.ContaBancaria;
+
+public class ContaBancariaApp {
+	
+	public static void main (String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		ContaBancaria  conta = new ContaBancaria ("001.002.003-04");
+		conta.depositar(100);
+		System.out.println("Saldo: " + conta.getSaldo() + " reais");
+		conta.depositar(- 50);
+		System.out.println("Saldo: " + conta.getSaldo() + " reais");
+	}
+
+}
